@@ -4,9 +4,16 @@
   color: red;
   gap: 1rem;
   margin-right: 0.5rem;
+  z-index: 10;
 }
 
 #map {
-  z-index: -10;
+  position: relative;
+}
+
+p {
+  z-index: 999;
   position: fixed;
+  color: red;
+  font-size: 40px;
 }

@@ -17,7 +17,6 @@ const svgStyles = {
 };
 
 function Wrapper() {
-  const test = [convert(38, -97), convert(35, 105), convert(54, -2)];
   const location = useLocation();
   const [infos, setInfos] = useState([]);
   const [name, setName] = useState("");
@@ -34,16 +33,16 @@ function Wrapper() {
     let x = ((mapWidth * (180 + lng)) / 360) % mapWidth;
     lat = (lat * Math.PI) / 180;
     let y = Math.log(Math.tan(lat / 2 + Math.PI / 4));
-    y = mapHeight / 2 - (mapWidth * y) / (2 * Math.PI) + 90;
-    return x;
+    y = mapHeight / 2 - (mapWidth * y) / (2 * Math.PI) + 85;
+    if (y != "Infinity") {
+      return { x: x, y: y };
+    }
+    return { x: x, y: 0 }
+    
   }
 
-  function convert(lat, lng) {
-    let x = ((mapWidth * (180 + lng)) / 360) % mapWidth;
-    lat = (lat * Math.PI) / 180;
-    let y = Math.log(Math.tan(lat / 2 + Math.PI / 4));
-    y = mapHeight / 2 - (mapWidth * y) / (2 * Math.PI) + 90;
-    return { x: x, y: y };
+  const getName = (ele) => {
+    setName(ele)
   }
 
   const Map = ({ width, height, dots }) => {
@@ -60,14 +59,15 @@ function Wrapper() {
           height={height}
           viewBox={`0 0 ${width} ${height}`}
         >
+          debugger
           {dots.map((ele, i) => (
             cord = convert(ele.latlng[0], ele.latlng[1]),
             <circle
-              onClick={(getName(ele.name))}
+              onClick={() => getName(ele.name)}
               key={i}
               cx={xScale(cord.x)}
               cy={yScale(cord.y)}
-              r="5"
+              r="3"
               fill="red"
             />
           ))}
@@ -76,15 +76,11 @@ function Wrapper() {
     );
   }
 
-  const getName = (ele) => {
-    setName(ele)
-  }
-
   return (
     <div className="wrapper">
+      <p>{ name }</p>
       <Map width={mapWidth} height={mapHeight} dots={infos} />
       <Navbar />
-      <div>{ name }</div>
     </div>
   );
 }
