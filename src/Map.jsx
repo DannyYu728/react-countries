@@ -14,7 +14,6 @@ const svgStyles = {
 const Map = (props) => {
   const { width, height, dots } = props;
   const [info, setInfo] = useState({});
-  const [toggle, setToggle] = useState(false);
 
   const delay = (duration) => {
     return new Promise((res) => {
@@ -34,17 +33,7 @@ const Map = (props) => {
   }
 
   const getInfo = async (ele) => {
-    let main = document.querySelector(".info");
-    if (!toggle) {
-      main.classList.remove("hidden");
       setInfo(ele);
-      setToggle(true);
-    } else {
-      main.classList.add("hidden");
-      await delay(1000)
-      setInfo({});
-      setToggle(false);
-    }
   };
 
   const xScale = scaleLinear().domain([0, width]).range([0, width]);
