@@ -27,9 +27,6 @@ function Navbar() {
       <NavbarLink to="/map">
         <div>World Map</div>
       </NavbarLink>
-      <NavbarLink to="/countries">
-        <div>Countries</div>
-      </NavbarLink>
     </div>
   );
 }

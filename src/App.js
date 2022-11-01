@@ -9,7 +9,6 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/map" element={<Wrapper />}></Route>
-        <Route path="/countries" element={<Wrapper />}></Route>
       </Routes>
     </div>
   );

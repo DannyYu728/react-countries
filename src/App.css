@@ -7,6 +7,16 @@
   height: 100vh;
 }
 
+.home {
+  justify-content: center;
+}
+
+.title {
+  color: whitesmoke;
+  text-shadow: 2px 2px 1px black;
+  font-size: 50px;
+}
+
 .navBar {
   display: flex;
   justify-content: flex-end;
@@ -27,11 +37,9 @@
   justify-content: space-between;
 }
 
-
 #map {
   position: relative;
   margin: 1rem 0rem 0rem 1rem;
-
 }
 
 .dots {
@@ -43,9 +51,15 @@
   height: 100%;
   width: 100%;
 }
+
 p {
   z-index: 999;
   color: whitesmoke;
   text-shadow: 2px 2px 1px black;
-  font-size: 40px;
+  font-size: 25px;
+}
+
+.hidden {
+  opacity: 0;
+  transition: all 1s;
 }
