@@ -1,22 +1,38 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
+const NavbarLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  padding: 0.3rem;
+  &:hover {
+    color: rgba(151, 206, 76, 1);
+  }
+`;
+
+const Title = styled.div`
+  color: #97ce4c;
+`;
+
+
 function Navbar() {
-  const [title, setTitle] = useState("");
-  const { id } = useParams();
 
   return (
     <div className="navBar">
-      <Link to="/">
-        <div className="material-symbols-outlined">home</div>
-      </Link>
-      <Link to="/countries">
-        <div className="material-symbols-outlined">Countries</div>
-      </Link>
+      <NavbarLink to="/">
+        <div>Home</div>
+      </NavbarLink>
+      <NavbarLink to="/map">
+        <div>World Map</div>
+      </NavbarLink>
+      <NavbarLink to="/countries">
+        <div>Countries</div>
+      </NavbarLink>
     </div>
   );
 }
+
 
 export default Navbar;

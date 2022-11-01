@@ -1,19 +1,51 @@
+.wrapper,
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  background: burlywood;
+  width: 100vw;
+  height: 100vh;
+}
+
 .navBar {
   display: flex;
   justify-content: flex-end;
+  background: rgba(45, 45, 45, 0.8);
+  width: 100vw;
+  height: 1.5rem;
   color: red;
   gap: 1rem;
-  margin-right: 0.5rem;
-  z-index: 10;
+  margin: 0;
+  padding-right: 1rem;
 }
+
+.mapContainer {
+  height: 95%;
+  width: 100vw;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
 
 #map {
   position: relative;
+  margin: 1rem 0rem 0rem 1rem;
+
 }
 
+.dots {
+  cursor: pointer;
+}
+
+.info {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
 p {
   z-index: 999;
-  position: fixed;
-  color: red;
+  color: whitesmoke;
+  text-shadow: 2px 2px 1px black;
   font-size: 40px;
 }
